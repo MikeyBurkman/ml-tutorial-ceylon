@@ -1,4 +1,8 @@
 
+// Take a collection of 2d points (as tuples), and a pre-determined number of groupings K,
+//  and then group the points into K number of clusters. This function will return the center
+//  points of those K clusters.
+
 import ceylon.math.float { random, sqrt, sum }
 import ceylon.collection { HashMap, unlinked }
 
@@ -83,6 +87,7 @@ ClusterCenter calculateNewCenter(Cluster cluster) {
     return if (cluster.empty) then randomPoint() else averagePoint(cluster);
 }
 
+// Here's wehre the real work is.
 ClusterCenter[] refineClusters(Point[] points, ClusterCenter[] clusterCenters) {
     value clusterMap = groupPointsToClusters(points, clusterCenters);
 
